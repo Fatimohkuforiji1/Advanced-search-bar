@@ -34,7 +34,12 @@ const SearchBar = ({placeholder, data}) => {
               {/* {filteredData.slice(0, 15).map((obj, key) reduce search to 15 */}
             {filteredData.map((obj, key) => {
               return (
-                <a className="dataItem" href={obj.link} target="_blank">
+                <a
+                  className="dataItem"
+                  href={obj.link}
+                  target="_blank"
+                  rel="nofollow"
+                >
                   <p>{obj.title}</p>
                 </a>
               );
