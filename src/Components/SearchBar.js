@@ -37,8 +37,10 @@ const SearchBar = ({placeholder, data}) => {
                 <a
                   className="dataItem"
                   href={obj.link}
+                //   href="#"
                   target="_blank"
                   rel="nofollow"
+                  rel="noreferrer"
                 >
                   <p>{obj.title}</p>
                 </a>
