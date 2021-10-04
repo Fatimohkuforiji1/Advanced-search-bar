@@ -6,9 +6,11 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const SearchBar = ({placeholder, data}) => {
     const [filteredData, setFilteredData] = useState([])
+    const [wordEntered, setWordEntered] = useState("");
 
     const handleFilter =(event)=>{
         const searchWord = event.target.value
+        setWordEntered(searchWord)
         const newFilter = data.filter((item)=>{
             return item.title.toLowerCase().includes(searchWord)
         })
@@ -20,13 +22,20 @@ const SearchBar = ({placeholder, data}) => {
         }
         
     }
+
+    const clearInput = () => {
+      setFilteredData([]);
+      setWordEntered("");
+    };
     return (
       <div className="search">
         <div className="searchInputs">
-          <input type="text" placeholder={placeholder}
+          <input type="text" placeholder={placeholder} value={wordEntered}
           onChange={handleFilter} />
           <div className="searchIcon">
-            {filteredData.length === 0? <SearchIcon />: <CloseIcon/> }
+            {filteredData.length === 0? (<SearchIcon />
+            ):( 
+            <CloseIcon id="clearBtn" onClick={clearInput}/> )}
           </div>
         </div>
         {filteredData.length !== 0 && (
@@ -37,9 +46,7 @@ const SearchBar = ({placeholder, data}) => {
                 <a
                   className="dataItem"
                   href={obj.link}
-                //   href="#"
                   target="_blank"
-                //   rel="nofollow"
                   rel="noreferrer"
                 >
                   <p>{obj.title}</p>
