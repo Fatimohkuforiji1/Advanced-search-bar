@@ -39,7 +39,7 @@ const SearchBar = ({placeholder, data}) => {
                   href={obj.link}
                 //   href="#"
                   target="_blank"
-                  rel="nofollow"
+                //   rel="nofollow"
                   rel="noreferrer"
                 >
                   <p>{obj.title}</p>
